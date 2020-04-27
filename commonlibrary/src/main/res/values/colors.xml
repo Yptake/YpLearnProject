@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="ic_back_press">#323336</color>
+    <color name="ip_color_primary">#393A3F</color>
+    <color name="ip_color_primary_dark">#303135</color>
+    <color name="ip_color_primary_trans">#ec2f3335</color>
+    <color name="ip_color_press">#ffe0e0e0</color>
+    <color name="ip_camera_pre">#353535</color>
+    <color name="ip_color_accent">#1AAD19</color>
+    <color name="ip_text_secondary_inverted">#66ffffff</color>
+    <color name="ip_text_primary_inverted">#ffffff</color>
+    <color name="color_transparent">#00000000</color>
+
+    <!-- 颜色 -->
+    <color name="white02">#05ffffff</color>
+    <color name="white04">#0Bffffff</color>
+    <color name="white06">#10ffffff</color>
+    <color name="white10">#1Affffff</color>
+    <color name="white20">#34ffffff</color>
+    <color name="white30">#4Dffffff</color>
+    <color name="white40">#67ffffff</color>
+    <color name="white50">#80ffffff</color>
+    <color name="white60">#99ffffff</color>
+    <color name="white70">#B2ffffff</color>
+    <color name="white80">#80ffffff</color>
+    <color name="white90">#EAffffff</color>
+    <color name="white100">#ffffff</color>
+    <color name="black02">#05000000</color>
+    <color name="black06">#10000000</color>
+    <color name="black10">#1A000000</color>
+    <color name="black15">#27000000</color>
+    <color name="black20">#34000000</color>
+    <color name="black30">#4D000000</color>
+    <color name="black40">#67000000</color>
+    <color name="black50">#80000000</color>
+    <color name="black60">#99000000</color>
+    <color name="black70">#B2000000</color>
+    <color name="black80">#CC000000</color>
+    <color name="black90">#EA000000</color>
+    <color name="black100">#000000</color>
+
+    <color name="color_393939">#393939</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_151515">#151515</color>
+
+
+
+
+
+</resources>

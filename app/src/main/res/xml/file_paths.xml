@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <root-path path="" name="camera_photos" />
+        <external-path
+            name="files_root"
+            path="Android/data/com/pgyersdk" />
+        <external-path
+            name="external_storage_root"
+            path="." />
+        <external-files-path name="bga_upgrade_apk" path="upgrade_apk" />
+        <external-path name="gdt_sdk_download_path" path="GDTDOWNLOAD" />
+    </paths>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="ll_empty_view" type="id"/>
+    <item name="ll_error_view" type="id"/>
+    <item name="ll_no_network_view" type="id"/>
+</resources>

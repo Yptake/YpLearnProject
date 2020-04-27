@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yptake.commonlibrary.widget.IsScrollViewPager
+        android:id="@+id/vp_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:isScroll="false" />
+
+    <View style="@style/line_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/dp_49"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_home_blue_24dp"
+            android:drawablePadding="@dimen/dp_3"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/dp_2"
+            android:text="首页"
+            android:textColor="@color/color_2196F3" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_video"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_ondemand_video_gray_24dp"
+            android:drawablePadding="@dimen/dp_2"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/dp_3"
+            android:text="视频"
+            android:textColor="@color/color_6E6E6E" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_music"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_music_note_gray_24dp"
+            android:drawablePadding="@dimen/dp_2"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/dp_3"
+            android:text="音乐"
+            android:textColor="@color/color_6E6E6E" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_sentiment_satisfied_gray_24dp"
+            android:drawablePadding="@dimen/dp_2"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:padding="@dimen/dp_3"
+            android:text="我的"
+            android:textColor="@color/color_6E6E6E" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+    useLibrary 'org.apache.http.legacy'
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
+    api rootProject.ext.dependencies["material"]
+    // 刷新控件
+    api rootProject.ext.dependencies["smartRefreshLayout"]
+    // 适配器
+    api rootProject.ext.dependencies["baseRecyclerViewAdapter"]
+    // 约束布局
+    api rootProject.ext.dependencies["constraintlayout"]
+    // 适配框架
+    api rootProject.ext.dependencies["autosize"]
+    // 网络监听
+    api rootProject.ext.dependencies["progressmanager"]
+    // 多url支持
+    api rootProject.ext.dependencies["retrofit-url-manager"]
+    // 生命周期管理
+    api rootProject.ext.dependencies["lifecyclemodel"]
+    // 图片加载框架
+    api(rootProject.ext.dependencies["glide"]) {
+        exclude module: 'annotation'
+        exclude module: 'fragment'
+        exclude module: 'vectordrawable-animated'
+    }
+    // 适配框架
+    api rootProject.ext.dependencies["autosize"]
+
+    api project(path: ':arms')
+
+}

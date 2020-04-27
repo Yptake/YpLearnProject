@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">YpLearnProject</string>
+    <string name="text_no_network">没有网络，请打开网络</string>
+
+</resources>
