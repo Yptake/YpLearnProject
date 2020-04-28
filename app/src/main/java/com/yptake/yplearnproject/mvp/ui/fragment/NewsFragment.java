@@ -12,10 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.jess.arms.base.BaseFragment;
-import com.jess.arms.base.BaseLazyLoadFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
 import com.yptake.commonlibrary.smartrefreshrecycler.listener.OnSimpleStatusListener;
@@ -35,7 +33,6 @@ import com.yptake.yplearnproject.utils.JumpActivityManager;
 import org.jetbrains.annotations.NotNull;
 
 import butterknife.BindView;
-import butterknife.internal.Utils;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
@@ -56,7 +53,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
     private boolean isCompleteCreateView;
     private boolean isLoadData;
     private BaseQuickAdapter mAdapter;
-
+    private int page = 1;
 
     public static NewsFragment newInstance(String type) {
         NewsFragment fragment = new NewsFragment();
@@ -106,16 +103,19 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
 
                     @Override
                     public void onRequest() {
+                        page = 1;
                         getData(true);
                     }
 
                     @Override
                     public void onRefresh() {
-                        getData(true);
+                        page = 1;
+                        getData(false);
                     }
 
                     @Override
                     public void onLoadMore() {
+                        page = page + 1;
                         getData(false);
                     }
 
@@ -129,12 +129,12 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
 
         mAdapter = new BaseQuickAdapter<ToutiaoEntity.DataBean, BaseViewHolder>(R.layout.item_news_layout) {
             @Override
-            protected void convert(@NotNull BaseViewHolder helper, ToutiaoEntity.DataBean dataBean) {
-                helper.setText(R.id.tv_title, dataBean.title)
-                        .setText(R.id.tv_author, dataBean.author_name)
-                        .setText(R.id.tv_time, dataBean.date);
+            protected void convert(@NotNull BaseViewHolder helper, ToutiaoEntity.DataBean item) {
+                helper.setText(R.id.tv_title, item.title)
+                        .setText(R.id.tv_author, item.author_name)
+                        .setText(R.id.tv_time, item.date);
                 ImageView mIvImg = helper.getView(R.id.iv_img);
-                CommonUtils.loadNormalImageView(mIvImg, dataBean.thumbnail_pic_s03);
+                CommonUtils.loadNormalImageView(mIvImg, item.thumbnail_pic_s03);
             }
         };
 
@@ -150,6 +150,7 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
 
         if (isUserVisible & !isLoadData) {
             // 获取数据
+            page = 1;
             getData(true);
         }
 
@@ -203,9 +204,9 @@ public class NewsFragment extends BaseFragment<NewsPresenter> implements NewsCon
         }
     }
 
-    public void getData(boolean isRefresh) {
+    public void getData(boolean isFirst) {
         if (mPresenter != null) {
-            mPresenter.getToutiaoNews(mType, mSrvRecyclerView, mAdapter, isRefresh);
+            mPresenter.getToutiaoNews(mType, mSrvRecyclerView, mAdapter, isFirst, page);
         }
     }
 

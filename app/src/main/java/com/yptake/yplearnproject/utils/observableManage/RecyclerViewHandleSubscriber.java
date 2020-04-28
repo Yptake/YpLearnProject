@@ -27,26 +27,13 @@ public abstract class RecyclerViewHandleSubscriber<T> extends ErrorHandleSubscri
 
     private SmartRefreshRecyclerView mSmartRefreshRecyclerView;
     private BaseQuickAdapter mAdapter;
-    private boolean isRefresh;
-    private boolean isFirst;
+    private int page;
 
-
-    public RecyclerViewHandleSubscriber(RxErrorHandler rxErrorHandler, SmartRefreshRecyclerView mSmartRefreshRecyclerView, BaseQuickAdapter mAdapter, boolean isRefresh) {
+    public RecyclerViewHandleSubscriber(RxErrorHandler rxErrorHandler, SmartRefreshRecyclerView mSmartRefreshRecyclerView, BaseQuickAdapter mAdapter, int page) {
         super(rxErrorHandler);
         this.mSmartRefreshRecyclerView = mSmartRefreshRecyclerView;
         this.mAdapter = mAdapter;
-        this.isRefresh = isRefresh;
-    }
-
-    public RecyclerViewHandleSubscriber(RxErrorHandler rxErrorHandler, SmartRefreshRecyclerView mSmartRefreshRecyclerView, BaseQuickAdapter mAdapter, boolean isRefresh, boolean isFirst) {
-        super(rxErrorHandler);
-        this.mSmartRefreshRecyclerView = mSmartRefreshRecyclerView;
-        this.mAdapter = mAdapter;
-        this.isRefresh = isRefresh;
-        this.isFirst = isFirst;
-        if (this.isFirst && !this.isRefresh) {
-            this.mSmartRefreshRecyclerView.showLoadingView();
-        }
+        this.page = page;
     }
 
     @Override
@@ -68,7 +55,7 @@ public abstract class RecyclerViewHandleSubscriber<T> extends ErrorHandleSubscri
 
             if (list != null && list.size() > 0) {
                 mSmartRefreshRecyclerView.showContentView();
-                if (isRefresh) {
+                if (page == 1) {
                     mAdapter.setNewData(list);
                     mSmartRefreshRecyclerView.setRefreshStatus(true);
                 } else {
@@ -80,7 +67,7 @@ public abstract class RecyclerViewHandleSubscriber<T> extends ErrorHandleSubscri
             }
 
         } else {
-            if (isRefresh) {
+            if (page == 1) {
                 mSmartRefreshRecyclerView.showErrorView();
                 mSmartRefreshRecyclerView.setRefreshStatus(false);
             } else {
@@ -99,7 +86,7 @@ public abstract class RecyclerViewHandleSubscriber<T> extends ErrorHandleSubscri
     @Override
     public void onError(@NonNull Throwable t) {
         super.onError(t);
-        if (isRefresh && mSmartRefreshRecyclerView != null) {
+        if (page == 1 && mSmartRefreshRecyclerView != null) {
             mSmartRefreshRecyclerView.showErrorView();
         }
     }
@@ -112,7 +99,7 @@ public abstract class RecyclerViewHandleSubscriber<T> extends ErrorHandleSubscri
      * 设置view的状态~
      */
     public void setViewStatus() {
-        if (isRefresh) {
+        if (page == 1) {
             mSmartRefreshRecyclerView.showEmptyView();
             mSmartRefreshRecyclerView.setRefreshStatus(true);
             mSmartRefreshRecyclerView.setEnableLoadMore(false);

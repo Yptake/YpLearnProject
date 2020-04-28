@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <!-- 竖直 + 水平拖拽 -->
+    <com.yptake.yplearnproject.widget.DraggableView
+        android:id="@+id/drag_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white20"
+        app:drag_view_id="@+id/scroll_view">
+
+        <com.yptake.yplearnproject.widget.DraggableScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white100"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <com.yptake.commonlibrary.smartrefreshrecycler.view.SmartRefreshRecyclerView
+                android:id="@+id/srv_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.yptake.yplearnproject.widget.DraggableScrollView>
+
+    </com.yptake.yplearnproject.widget.DraggableView>
+
+</LinearLayout>

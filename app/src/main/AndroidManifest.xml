@@ -92,8 +92,14 @@
         <activity
             android:name=".mvp.ui.activity.PublicH5Activity"
             android:launchMode="standard"
+            android:process=".publicweb"
             android:screenOrientation="fullSensor"
             android:theme="@style/Activity_NoActionBar" />
+        <activity
+            android:name=".mvp.ui.activity.SmallVideoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Translucent" />
 
         <service android:name=".mvp.ui.service.InitializeService" />
         <service android:name=".mvp.ui.service.NetWorkStatusService" />

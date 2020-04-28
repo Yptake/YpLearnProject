@@ -27,6 +27,15 @@
         <item name="colorControlActivated">@color/colorPrimaryDark</item>
     </style>
 
+    <style name="Translucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Note that we use the base animation style here (that is no
+             animations) because we really have no idea how this kind of
+             activity will be used. -->
+    </style>
+
     <!-- toolbar 文本 -->
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">16sp</item>
@@ -38,6 +47,35 @@
         <item name="android:background">#eeeeee</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
+    </style>
+
+    <style name="dialog_fragment_style">
+        <item name="android:windowIsFloating">false</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">false</item>
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@style/customAnimationStyle</item>
+    </style>
+
+    <style name="customAnimationStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_bottom_in</item>`
+        <item name="android:windowExitAnimation">@anim/anim_dialog_bottom_out</item>
+    </style>
+
+    <style name="dialog_Bottom_sheet_fragment_style" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 
 </resources>

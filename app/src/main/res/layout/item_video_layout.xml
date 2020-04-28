@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:transitionName="small_cover"
+        tools:layout_height="@dimen/dp_400"
+        tools:src="@drawable/default_cover" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:padding="@dimen/dp_5"
+        android:src="@drawable/ic_close_black_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:background="@drawable/shape_black50_to_black30"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:maxLines="2"
+            android:padding="@dimen/dp_8"
+            android:textColor="@color/white100"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题这是标题" />
+
+        <TextView
+            android:id="@+id/tv_play_num"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_play_arrow_white_24dp"
+            android:drawablePadding="@dimen/dp_4"
+            android:ellipsize="end"
+            android:gravity="center|start"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:paddingStart="@dimen/dp_8"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5"
+            android:textColor="@color/white100"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintEnd_toStartOf="@+id/tv_play_like"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="64万播放" />
+
+        <TextView
+            android:id="@+id/tv_play_like"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center|end"
+            android:includeFontPadding="false"
+            android:lines="1"
+            android:paddingTop="@dimen/dp_5"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_5"
+            android:textColor="@color/white100"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_play_num"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_play_num"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_play_num"
+            tools:text="64赞" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
